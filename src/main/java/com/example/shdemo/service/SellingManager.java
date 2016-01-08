@@ -108,6 +108,8 @@ public class SellingManager {
 	}
 
 	public void deleteFilm(Film film) {
+		film = (Film) em.find(Film.class,
+				film.getId());
 		em.remove(film);
 	}
 
