@@ -22,15 +22,15 @@
                     <tr>
                         <th>#</th>
                         <th>Tytuł</th>
-                        <th>Reżyser</th>
                         <th>Gatunek</th>
+                        <th>Czy ma przypisanego reżysera</th>
                     </tr>
                     <c:forEach var="film" items="${filmy}" varStatus="loopCounter">
                         <tr>
                             <td>${film.id}</td>
                             <td>${film.tytul}</td>
-                            <td>${film.rezyser.firstname}</td>
                             <td>${film.gatunek}</td>
+                            <td>${film.haveRezyser}</td>
                             <td>
                                 <a href="view/${message.id}">
                                     View
@@ -70,14 +70,6 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="rezyser" class="col-sm-2 control-label">Reżyser:</label>
-
-                    <div class="col-sm-10">
-                        <input type="text" name="rezyser" id="rezyser" class="form-control">
-                    </div>
-                </div>
-
-                <div class="form-group">
                     <label for="gatunek" class="col-sm-2 control-label">Gatunek:</label>
 
                     <div class="col-sm-10">
@@ -88,6 +80,7 @@
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
                         <button type="submit" class="btn btn-default">Dodaj</button>
+
                     </div>
                 </div>
             </form>

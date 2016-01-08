@@ -13,33 +13,34 @@
 
 <div class="container">
     <div class="row">
-        <h3>Messages</h3>
+        <h3>Reżyserzy</h3>
         <br/>
 
         <c:choose>
-            <c:when test="${messages.size() > 0}">
+            <c:when test="${rezyserzy.size() > 0}">
                 <table class="table table-striped">
                     <tr>
                         <th>#</th>
-                        <th>Title</th>
-                        <th>Author</th>
-                        <th>Actions</th>
+                        <th>Imię</th>
+                        <th>Data urodzenia</th>
+                        <th>PIN</th>
                     </tr>
-                    <c:forEach var="message" items="${messages}" varStatus="loopCounter">
+                    <c:forEach var="rezyser" items="${rezyserzy}" varStatus="loopCounter">
                         <tr>
-                            <td>${message.id}</td>
-                            <td>${message.title}</td>
-                            <td>${message.author}</td>
+                            <td>${rezyser.id}</td>
+                            <td>${rezyser.firstName}</td>
+                            <td>${rezyser.birthDate}</td>
+                            <td>${rezyser.pin}</td>
                             <td>
-                                <a href="view/${message.id}">
+                                <a href="view/${rezyser.id}">
                                     View
                                 </a>
                                 |
-                                <a href="edit/${message.id}">
+                                <a href="edit/${rezyser.id}">
                                     Edit
                                 </a>
                                 |
-                                <a href="remove/${message.id}">
+                                <a href="remove/${rezyser.id}">
                                     Remove
                                 </a>
                             </td>
@@ -49,44 +50,44 @@
 
             </c:when>
             <c:otherwise>
-                <div class="well">No messages yet!</div>
+                <div class="well">Brak reżyserów</div>
             </c:otherwise>
         </c:choose>
     </div>
 
     <div class="row">
         <div class="col-md-12">
-            <h3>Add new message!</h3>
+            <h3>Dodaj reżysera</h3>
             <br/>
 
             <form action="add" method="post" class="form-horizontal">
                 <div class="form-group">
-                    <label for="title" class="col-sm-2 control-label">Title:</label>
+                    <label for="imie" class="col-sm-2 control-label">Imię:</label>
 
                     <div class="col-sm-10">
-                        <input type="text" name="title" id="title" class="form-control">
+                        <input type="text" name="imie" id="imie" class="form-control">
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label for="message" class="col-sm-2 control-label">Message:</label>
+                    <label for="dataUr" class="col-sm-2 control-label">Data urodzenia:</label>
 
                     <div class="col-sm-10">
-                        <input type="text" name="message" id="message" class="form-control">
+                        <input type="text" name="dataUr" id="dataUr" class="form-control">
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label for="author" class="col-sm-2 control-label">Author:</label>
+                    <label for="pin" class="col-sm-2 control-label">PIN:</label>
 
                     <div class="col-sm-10">
-                        <input type="text" name="author" id="author" class="form-control">
+                        <input type="text" name="pin" id="pin" class="form-control">
                     </div>
                 </div>
 
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
-                        <button type="submit" class="btn btn-default">Add</button>
+                        <button type="submit" class="btn btn-default">Dodaj</button>
                     </div>
                 </div>
             </form>
