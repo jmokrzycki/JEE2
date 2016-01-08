@@ -60,7 +60,7 @@
             <h3>Dodaj reżysera</h3>
             <br/>
 
-            <form action="add" method="post" class="form-horizontal">
+            <form action="addRezyser" method="post" class="form-horizontal">
                 <div class="form-group">
                     <label for="imie" class="col-sm-2 control-label">Imię:</label>
 

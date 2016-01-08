@@ -60,7 +60,7 @@
             <h3>Dodaj nowy film</h3>
             <br/>
 
-<form action="add" method="post" class="form-horizontal">             
+<form action="addFilm" method="post" class="form-horizontal">             
 		   <div class="form-group">
                     <label for="tytul" class="col-sm-2 control-label">Tytuł:</label>
 
