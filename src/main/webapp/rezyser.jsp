@@ -32,16 +32,16 @@
                             <td>${rezyser.birthDate}</td>
                             <td>${rezyser.pin}</td>
                             <td>
-                                <a href="view/${rezyser.id}">
-                                    View
+                                <a href="view/${filmRezyserz.id}">
+                                    Zobacz
                                 </a>
                                 |
-                                <a href="edit/${rezyser.id}">
-                                    Edit
+                                <a href="edit/${filmRezyserz.id}">
+                                    Zmień
                                 </a>
                                 |
-                                <a href="remove/${rezyser.id}">
-                                    Remove
+                                <a href="remove/${filmRezyserz.id}">
+                                    Usuń
                                 </a>
                             </td>
                         </tr>

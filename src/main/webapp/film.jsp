@@ -32,16 +32,16 @@
                             <td>${film.gatunek}</td>
                             <td>${film.haveRezyser}</td>
                             <td>
-                                <a href="view/${message.id}">
-                                    View
+                                <a href="view/${filmRezyserz.id}">
+                                    Zobacz
                                 </a>
                                 |
-                                <a href="edit/${message.id}">
-                                    Edit
+                                <a href="edit/${filmRezyserz.id}">
+                                    Zmień
                                 </a>
                                 |
-                                <a href="remove/${message.id}">
-                                    Remove
+                                <a href="remove/${filmRezyserz.id}">
+                                    Usuń
                                 </a>
                             </td>
                         </tr>

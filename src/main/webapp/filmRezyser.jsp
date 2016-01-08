@@ -31,15 +31,15 @@
                             <td>${filmRezyserz.film.birthDate}</td>
                             <td>
                                 <a href="view/${filmRezyserz.id}">
-                                    View
+                                    Zobacz
                                 </a>
                                 |
                                 <a href="edit/${filmRezyserz.id}">
-                                    Edit
+                                    Zmień
                                 </a>
                                 |
                                 <a href="remove/${filmRezyserz.id}">
-                                    Remove
+                                    Usuń
                                 </a>
                             </td>
                         </tr>
