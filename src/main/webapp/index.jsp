@@ -1,1 +1,1 @@
-<% request.getRequestDispatcher("home.jsp").forward(request, response); %>
+<% request.getRequestDispatcher("main.jsp").forward(request, response); %>
