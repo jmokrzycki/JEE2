@@ -14,29 +14,29 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <h3>Edit message:</h3>
+            <h3>Zmień film:</h3>
             <br/>
 
-            <form action="${pageContext.request.contextPath}/edit/${message.id}" method="post" class="form-horizontal">
+            <form action="${pageContext.request.contextPath}/editFilm/${film.id}" method="post" class="form-horizontal">
                 <div class="form-group">
-                    <label for="title" class="col-sm-2 control-label">Title:</label>
+                    <label for="title" class="col-sm-2 control-label">Tytuł:</label>
 
                     <div class="col-sm-10">
-                        <input type="text" name="title" id="title" value="${message.title}" class="form-control">
+                        <input type="text" name="tytul" id="tytul" value="${film.tytul}" class="form-control">
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label for="message" class="col-sm-2 control-label">Message:</label>
+                    <label for="gatunek" class="col-sm-2 control-label">Gatunek:</label>
 
                     <div class="col-sm-10">
-                        <input type="text" name="message" id="message" value="${message.message}" class="form-control">
+                        <input type="text" name="gatunek" id="gatunek" value="${film.gatunek}" class="form-control">
                     </div>
                 </div>
 
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
-                        <button type="submit" class="btn btn-default">Save</button>
+                        <button type="submit" class="btn btn-default">Zapisz</button>
                     </div>
                 </div>
             </form>

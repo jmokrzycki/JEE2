@@ -1,5 +1,6 @@
 package com.example.shdemo.service;
 
+import java.util.Date;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
@@ -99,11 +100,20 @@ public class SellingManager {
 		return (Film) em.find(Film.class, id);
 	}
 
-	public void updateFilm(Film film){
+	public void updateFilm(Long id, String tytul, String gatunek){
+		Film film = findFilmById(id);
+		film.setTytul(tytul);
+		film.setGatunek(gatunek);
+
 		em.merge(film);
 	}
 
-	public void updateRezyser(Rezyser rezyser){
+	public void updateRezyser(Long id, String firstName, Date birthDate, String pin){
+		Rezyser rezyser = findRezyserById(id);
+		rezyser.setFirstName(firstName);
+		rezyser.setBirthDate(birthDate);
+		rezyser.setPin(pin);
+
 		em.merge(rezyser);
 	}
 

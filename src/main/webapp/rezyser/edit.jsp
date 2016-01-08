@@ -14,29 +14,37 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <h3>Edit message:</h3>
+            <h3>Zmień reżysera:</h3>
             <br/>
 
-            <form action="${pageContext.request.contextPath}/edit/${message.id}" method="post" class="form-horizontal">
+            <form action="${pageContext.request.contextPath}/editRezyser/${rezyser.id}" method="post" class="form-horizontal">
                 <div class="form-group">
-                    <label for="title" class="col-sm-2 control-label">Title:</label>
+                    <label for="title" class="col-sm-2 control-label">Imię:</label>
 
                     <div class="col-sm-10">
-                        <input type="text" name="title" id="title" value="${message.title}" class="form-control">
+                        <input type="text" name="firstName" id="firstName" value="${rezyser.firstName}" class="form-control">
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label for="message" class="col-sm-2 control-label">Message:</label>
+                    <label for="message" class="col-sm-2 control-label">Data urodzenia:</label>
 
                     <div class="col-sm-10">
-                        <input type="text" name="message" id="message" value="${message.message}" class="form-control">
+                        <input type="text" name="birthDate" id="birthDate" value="${rezyser.birthDate}" class="form-control">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="message" class="col-sm-2 control-label">PIN:</label>
+
+                    <div class="col-sm-10">
+                        <input type="text" name="pin" id="pin" value="${rezyser.pin}" class="form-control">
                     </div>
                 </div>
 
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
-                        <button type="submit" class="btn btn-default">Save</button>
+                        <button type="submit" class="btn btn-default">Zapisz</button>
                     </div>
                 </div>
             </form>
