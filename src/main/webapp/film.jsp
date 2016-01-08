@@ -13,23 +13,24 @@
 
 <div class="container">
     <div class="row">
-        <h3>Messages</h3>
+        <h3>Filmy</h3>
         <br/>
 
         <c:choose>
-            <c:when test="${messages.size() > 0}">
+            <c:when test="${filmy.size() > 0}">
                 <table class="table table-striped">
                     <tr>
                         <th>#</th>
-                        <th>Title</th>
-                        <th>Author</th>
-                        <th>Actions</th>
+                        <th>Tytuł</th>
+                        <th>Reżyser</th>
+                        <th>Gatunek</th>
                     </tr>
-                    <c:forEach var="message" items="${messages}" varStatus="loopCounter">
+                    <c:forEach var="film" items="${filmy}" varStatus="loopCounter">
                         <tr>
-                            <td>${message.id}</td>
-                            <td>${message.title}</td>
-                            <td>${message.author}</td>
+                            <td>${film.id}</td>
+                            <td>${film.tytul}</td>
+                            <td>${film.rezyser.firstname}</td>
+                            <td>${film.gatunek}</td>
                             <td>
                                 <a href="view/${message.id}">
                                     View
@@ -49,44 +50,44 @@
 
             </c:when>
             <c:otherwise>
-                <div class="well">No messages yet!</div>
+                <div class="well">Brak filmów</div>
             </c:otherwise>
         </c:choose>
     </div>
 
     <div class="row">
         <div class="col-md-12">
-            <h3>Add new message!</h3>
+            <h3>Dodaj nowy film</h3>
             <br/>
 
-            <form action="add" method="post" class="form-horizontal">
-                <div class="form-group">
-                    <label for="title" class="col-sm-2 control-label">Title:</label>
+<form action="add" method="post" class="form-horizontal">             
+		   <div class="form-group">
+                    <label for="tytul" class="col-sm-2 control-label">Tytuł:</label>
 
                     <div class="col-sm-10">
-                        <input type="text" name="title" id="title" class="form-control">
+                        <input type="text" name="tytul" id="tytul" class="form-control">
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label for="message" class="col-sm-2 control-label">Message:</label>
+                    <label for="rezyser" class="col-sm-2 control-label">Reżyser:</label>
 
                     <div class="col-sm-10">
-                        <input type="text" name="message" id="message" class="form-control">
+                        <input type="text" name="rezyser" id="rezyser" class="form-control">
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label for="author" class="col-sm-2 control-label">Author:</label>
+                    <label for="gatunek" class="col-sm-2 control-label">Gatunek:</label>
 
                     <div class="col-sm-10">
-                        <input type="text" name="author" id="author" class="form-control">
+                        <input type="text" name="gatunek" id="gatunek" class="form-control">
                     </div>
                 </div>
 
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
-                        <button type="submit" class="btn btn-default">Add</button>
+                        <button type="submit" class="btn btn-default">Dodaj</button>
                     </div>
                 </div>
             </form>
