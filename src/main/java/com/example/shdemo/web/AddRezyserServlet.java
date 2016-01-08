@@ -42,6 +42,6 @@ public class AddRezyserServlet extends HttpServlet{
 
         storage.addRezyser(newRezyser);
 
-        response.sendRedirect(response.encodeRedirectURL(request.getContextPath() + "/rezyser.jsp"));
+        response.sendRedirect(response.encodeRedirectURL(request.getContextPath() + "/Rezyserzy"));
     }
 }

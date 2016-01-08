@@ -27,6 +27,6 @@ public class AddFilmServlet extends HttpServlet{
 
         storage.addFilm(newFilm);
 
-        response.sendRedirect(response.encodeRedirectURL(request.getContextPath() + "/film.jsp"));
+        response.sendRedirect(response.encodeRedirectURL(request.getContextPath() + "/Filmy"));
     }
 }

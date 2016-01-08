@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(urlPatterns = "/downloadFilm")
+@WebServlet(urlPatterns = "/Filmy")
 public class DownloadFilmServlet extends HttpServlet{
     @EJB
     private SellingManager storage;

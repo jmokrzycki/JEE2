@@ -24,6 +24,7 @@
                         <th>Tytuł</th>
                         <th>Gatunek</th>
                         <th>Czy ma przypisanego reżysera</th>
+                        <th>Akcja</th>
                     </tr>
                     <c:forEach var="film" items="${filmy}" varStatus="loopCounter">
                         <tr>
@@ -32,15 +33,15 @@
                             <td>${film.gatunek}</td>
                             <td>${film.haveRezyser}</td>
                             <td>
-                                <a href="view/${filmRezyserz.id}">
+                                <a href="viewFilm/${film.id}">
                                     Zobacz
                                 </a>
                                 |
-                                <a href="edit/${filmRezyserz.id}">
+                                <a href="editFilm/${film.id}">
                                     Zmień
                                 </a>
                                 |
-                                <a href="remove/${filmRezyserz.id}">
+                                <a href="removeFilm/${film.id}">
                                     Usuń
                                 </a>
                             </td>

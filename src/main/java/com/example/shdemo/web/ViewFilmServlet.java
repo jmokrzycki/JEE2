@@ -1,6 +1,6 @@
 package com.example.shdemo.web;
 
-import com.example.shdemo.domain.Rezyser;
+import com.example.shdemo.domain.Film;
 import com.example.shdemo.service.SellingManager;
 
 import javax.ejb.EJB;
@@ -11,14 +11,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(urlPatterns = "/Rezyserzy")
-public class DownloadRezyserServlet extends HttpServlet{
+@WebServlet(urlPatterns = "/viewFilm/*")
+public class ViewFilmServlet extends HttpServlet{
     @EJB
     private SellingManager storage;
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setAttribute("rezyserzy", storage.getAllRezyzser());
-        request.getRequestDispatcher("rezyser.jsp").forward(request, response);
+       Long messageID = WebUtils.getMessageID(request);
+
+        request.setAttribute("film", storage.findFilmById(messageID));
+        request.getRequestDispatcher("/film/view.jsp").forward(request, response);
     }
 }

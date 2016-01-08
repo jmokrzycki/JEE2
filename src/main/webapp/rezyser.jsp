@@ -24,6 +24,7 @@
                         <th>Imię</th>
                         <th>Data urodzenia</th>
                         <th>PIN</th>
+                        <th>Akcja</th>
                     </tr>
                     <c:forEach var="rezyser" items="${rezyserzy}" varStatus="loopCounter">
                         <tr>
@@ -32,15 +33,15 @@
                             <td>${rezyser.birthDate}</td>
                             <td>${rezyser.pin}</td>
                             <td>
-                                <a href="view/${filmRezyserz.id}">
+                                <a href="viewRezyser/${rezyser.id}">
                                     Zobacz
                                 </a>
                                 |
-                                <a href="edit/${filmRezyserz.id}">
+                                <a href="editRezyser/${rezyser.id}">
                                     Zmień
                                 </a>
                                 |
-                                <a href="remove/${filmRezyserz.id}">
+                                <a href="removeRezyser/${rezyser.id}">
                                     Usuń
                                 </a>
                             </td>
