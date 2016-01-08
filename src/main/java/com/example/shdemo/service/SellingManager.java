@@ -90,6 +90,7 @@ public class SellingManager {
 		return (Rezyser) em.find(Rezyser.class, id);
 	}
 
+	@SuppressWarnings("unchecked")
 	public List<Film> getAllFilm(){
 		return em.createNamedQuery("film.all").getResultList();
 	}

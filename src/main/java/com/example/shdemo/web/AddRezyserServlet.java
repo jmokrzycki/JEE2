@@ -23,17 +23,17 @@ public class AddRezyserServlet extends HttpServlet{
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String imie = request.getParameter("imie");
-        String dataUr = request.getParameter("dataUr");
+        String firstName = request.getParameter("firstName");
+        String birthDate = request.getParameter("birthDate");
         String pin = request.getParameter("pin");
 
 	DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 
         Rezyser newRezyser = new Rezyser();
-        newRezyser.setFirstName(imie);
+        newRezyser.setFirstName(firstName);
 	try
 	{
-        	newRezyser.setBirthDate(format.parse(dataUr));
+        	newRezyser.setBirthDate(format.parse(birthDate ));
 	}
 	catch(Exception e)
 	{

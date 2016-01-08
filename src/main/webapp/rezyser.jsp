@@ -62,18 +62,18 @@
 
             <form action="addRezyser" method="post" class="form-horizontal">
                 <div class="form-group">
-                    <label for="imie" class="col-sm-2 control-label">Imię:</label>
+                    <label for="firstName" class="col-sm-2 control-label">Imię:</label>
 
                     <div class="col-sm-10">
-                        <input type="text" name="imie" id="imie" class="form-control">
+                        <input type="text" name="firstName" id="firstName" class="form-control">
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <label for="dataUr" class="col-sm-2 control-label">Data urodzenia:</label>
+                    <label for="birthDate" class="col-sm-2 control-label">Data urodzenia:</label>
 
                     <div class="col-sm-10">
-                        <input type="text" name="dataUr" id="dataUr" class="form-control">
+                        <input type="text" name="birthDate" id="birthDate" class="form-control">
                     </div>
                 </div>
 
