@@ -28,7 +28,7 @@ public class RezyserResource{
     	 return sm.getAllRezyzser();
     }
 
-     @PUT
+     @POST
      @Path("/add")
      @Produces(MediaType.APPLICATION_JSON)
      public Rezyser add(

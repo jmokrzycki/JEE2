@@ -5,6 +5,33 @@
 <html lang="en">
 <head>
     <jsp:include page="parts/head.jsp" />
+    <jsp:include page="parts/scripts.jsp" />
+	<script>
+	$(document).ready(function()
+	{
+		$( "#add" ).on('click', function(e)
+			{
+			e.preventDefault();
+			$.ajax
+			(
+				{
+				url: '${pageContext.request.contextPath}/rest/rezyser/add',
+				type: 'POST',
+				data:
+				{
+					firstName: document.getElementById('firstName').value,
+					birthDate: document.getElementById('birthDate').value,
+					pin: document.getElementById('pin').value
+				},
+				success: function() { document.location.replace("${pageContext.request.contextPath}/rezyser.jsp"); },
+				error: function() { alert("Błąd!"); }
+			}
+			);
+			}
+		);
+		}
+	);
+	</script>
 </head>
 
 <body>
@@ -61,7 +88,7 @@
             <h3>Dodaj reżysera</h3>
             <br/>
 
-            <form action="addRezyser" method="post" class="form-horizontal">
+            <form method="post" class="form-horizontal">
                 <div class="form-group">
                     <label for="firstName" class="col-sm-2 control-label">Imię:</label>
 
@@ -88,7 +115,7 @@
 
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
-                        <button type="submit" class="btn btn-default">Dodaj</button>
+                        <button id="add" type="submit" class="btn btn-default">Dodaj</button>
                     </div>
                 </div>
             </form>
@@ -100,6 +127,5 @@
     <jsp:include page="parts/footer.jsp" />
 </div>
 
-<jsp:include page="parts/scripts.jsp" />
 </body>
 </html>

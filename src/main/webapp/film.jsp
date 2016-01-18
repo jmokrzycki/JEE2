@@ -5,6 +5,32 @@
 <html lang="en">
 <head>
     <jsp:include page="parts/head.jsp" />
+    <jsp:include page="parts/scripts.jsp" />
+	<script>
+	$(document).ready(function()
+	{
+		$( "#add" ).on('click', function(e)
+			{
+			e.preventDefault();
+			$.ajax
+			(
+				{
+				url: '${pageContext.request.contextPath}/rest/film/add',
+				type: 'POST',
+				data:
+				{
+					tytul: document.getElementById('tytul').value,
+					gatunek: document.getElementById('gatunek').value,
+				},
+				success: function() { document.location.replace("${pageContext.request.contextPath}/film.jsp"); },
+				error: function() { alert("Błąd!"); }
+			}
+			);
+			}
+		);
+		}
+	);
+	</script>
 </head>
 
 <body>
@@ -23,7 +49,6 @@
                         <th>#</th>
                         <th>Tytuł</th>
                         <th>Gatunek</th>
-                        <th>Czy ma przypisanego reżysera</th>
                         <th>Akcja</th>
                     </tr>
                     <c:forEach var="film" items="${filmy}" varStatus="loopCounter">
@@ -61,7 +86,7 @@
             <h3>Dodaj nowy film</h3>
             <br/>
 
-<form action="addFilm" method="post" class="form-horizontal">             
+		<form method="post" class="form-horizontal">             
 		   <div class="form-group">
                     <label for="tytul" class="col-sm-2 control-label">Tytuł:</label>
 
@@ -80,7 +105,7 @@
 
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
-                        <button type="submit" class="btn btn-default">Dodaj</button>
+                        <button id="add" type="submit" class="btn btn-default">Dodaj</button>
 
                     </div>
                 </div>

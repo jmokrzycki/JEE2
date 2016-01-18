@@ -1,1 +1,1 @@
-<% request.getRequestDispatcher("filmRezyser.jsp").forward(request, response); %>
+<% request.getRequestDispatcher("film.jsp").forward(request, response); %>

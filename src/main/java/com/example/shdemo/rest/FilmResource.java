@@ -25,7 +25,7 @@ public class FilmResource{
     	 return sm.getAllFilm();
     }
 
-     @PUT
+     @POST
      @Path("/add")
      @Produces(MediaType.APPLICATION_JSON)
      public Film add(
