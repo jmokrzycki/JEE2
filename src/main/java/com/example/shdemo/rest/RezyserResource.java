@@ -2,6 +2,9 @@ package com.zakladPogrzebowy.rest;
 
 import java.util.List;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+
 import com.example.shdemo.domain.Rezyser;
 import com.example.shdemo.service.SellingManager;
 
@@ -22,7 +25,7 @@ public class RezyserResource{
     @Path("/getAll")
     @Produces(MediaType.APPLICATION_JSON)
     public List<Rezyser> getAll() {
-    	 return sm.getAllRezyser();
+    	 return sm.getAllRezyzser();
     }
 
      @PUT
@@ -35,7 +38,14 @@ public class RezyserResource{
      {
 	Rezyser r = new Rezyser();
 	r.setFirstName(firstName);
-	r.setBirthDate((Date)birthDate);
+	DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+	try
+	{
+		r.setBirthDate(format.parse(birthDate));
+	}
+	catch(Exception e)
+	{
+	}
 	r.setPin(pin);
 	sm.addRezyser(r);
 	return r;
@@ -51,7 +61,15 @@ public class RezyserResource{
  	@FormParam("pin") String pin)
      {
 	Rezyser r = new Rezyser();
-	sm.updateRezyser(id, firstName, (Date)birthDate, pin);
+	DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+	try
+	{
+		sm.updateRezyser(id, firstName, format.parse(birthDate), pin);
+	}
+	catch(Exception e)
+	{
+	}
+	r.setPin(pin);
 	return r;
      }
 
