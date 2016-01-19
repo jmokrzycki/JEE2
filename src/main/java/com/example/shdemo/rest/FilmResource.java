@@ -29,10 +29,12 @@ public class FilmResource{
      @Path("/add")
      @Produces(MediaType.APPLICATION_JSON)
      public Film add(
+	@FormParam("rezyser") Long id,
 	@FormParam("tytul") String tytul,
 	@FormParam("gatunek") String gatunek)
      {
 	Film f = new Film();
+	f.setRezyser(sm.findRezyserById(id));
 	f.setTytul(tytul);
 	f.setGatunek(gatunek);
 	sm.addFilm(f);

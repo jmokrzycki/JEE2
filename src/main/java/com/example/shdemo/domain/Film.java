@@ -6,6 +6,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.ManyToOne;
+import javax.persistence.JoinColumn;
 
 @Entity
 @NamedQueries({
@@ -16,6 +18,7 @@ import javax.persistence.NamedQuery;
 public class Film {
 
 	private Long id;
+	private Rezyser rezyser;
 	private String tytul;
 	private String gatunek;
 	private Boolean haveRezyser = false;
@@ -28,6 +31,14 @@ public class Film {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public void setRezyser(Rezyser rezyser) { this.rezyser = rezyser; }
+
+	@ManyToOne
+	@JoinColumn(name = "id_rezyser", nullable = false)
+	public Rezyser getRezyser() {
+	return rezyser;
 	}
 
 	public String getTytul() {

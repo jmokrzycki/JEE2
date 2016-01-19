@@ -19,10 +19,11 @@
 				type: 'POST',
 				data:
 				{
+					rezyser: document.getElementById('rezyser').value,
 					tytul: document.getElementById('tytul').value,
 					gatunek: document.getElementById('gatunek').value,
 				},
-				success: function() { document.location.replace("${pageContext.request.contextPath}/film.jsp"); },
+				success: function() { document.location.replace("${pageContext.request.contextPath}/Film"); },
 				error: function() { alert("Błąd!"); }
 			}
 			);
@@ -47,10 +48,11 @@
 				for (var i = 0; i < d; i++)
 				{
 					tr = $('<tr/>');
+					tr.append("<td>"+data[i].rezyser.firstName+"</td>");
 					tr.append("<td>"+data[i].tytul+"</td>");
 					tr.append("<td>"+data[i].gatunek+"</td>");
 					td = $('<td/>');
-					td.append("<a href='${pageContext.request.contextPath}/film/edit/"+data[i].id+"' class='btn btn-default'>Edytuj </a><buttom onClick='del("+data[i].id+")' class='btn btn-default'> Usuń </buttom>");
+					td.append("<a href='${pageContext.request.contextPath}/film/edit/"+data[i].id+"' class='btn btn-default'>Zmień </a><buttom onClick='del("+data[i].id+")' class='btn btn-default'> Usuń </buttom>");
 					tr.append(td);
 					$(table).append(tr);
 				}
@@ -59,6 +61,19 @@
 		);
 	}
 	);
+	</script>
+	<script>
+	function del(id)
+	{
+	$.ajax
+	(
+		{
+		url: '${pageContext.request.contextPath}/rest/rezyser/delete/'+id,
+		type: 'DELETE',
+		success: function() { document.location.reload(true);}
+		}
+	);
+	}
 	</script>
 
 <body>
@@ -73,6 +88,7 @@
 
 	<table id="tab" class="table table-striped">
 		<tr>
+			<th>Reżyser</th>
 			<th>Tytuł</th>
 			<th>Gatunek</th>
 			<th></th>
@@ -86,13 +102,24 @@
             <h3>Dodaj nowy film</h3>
             <br/>
 
-		<form method="post" class="form-horizontal">             
+		<form method="post" class="form-horizontal"> 
 		   <div class="form-group">
-                    <label for="tytul" class="col-sm-2 control-label">Tytuł:</label>
+			<label for="rezyser" class="col-sm-2 control-label">Reżyser:</label>
+			<div class="col-sm-10">
+				<select type="text" name="rezyser" id="rezyser" class="form-control" required>
+					<c:forEach var="rez" items="${rezyserKO}" varStatus="loopCounter">
+						<option value="${rez.id}">${rez.firstName}</option>
+					</c:forEach>
+				</select>
+			</div>
+                </div>
+            
+		   <div class="form-group">
+		            <label for="tytul" class="col-sm-2 control-label">Tytuł:</label>
 
-                    <div class="col-sm-10">
-                        <input type="text" name="tytul" id="tytul" class="form-control">
-                    </div>
+		            <div class="col-sm-10">
+		                <input type="text" name="tytul" id="tytul" class="form-control">
+		            </div>
                 </div>
 
                 <div class="form-group">

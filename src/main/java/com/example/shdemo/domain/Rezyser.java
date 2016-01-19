@@ -42,7 +42,7 @@ public class Rezyser {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
+
 	public String getFirstName() {
 		return firstName;
 	}
@@ -67,7 +67,7 @@ public class Rezyser {
 	}
 
 	// Be careful here, both with lazy and eager fetch type
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy="rezyser", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JsonIgnore
 	public List<Film> getFilms() {
 		return films;
