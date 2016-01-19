@@ -31,7 +31,35 @@
 		}
 	);
 	</script>
-</head>
+
+	<script>
+	$(document).ready(function()
+	{
+		$.ajax
+		(
+		{
+			url: '${pageContext.request.contextPath}/rest/film/getAll',
+			type: 'GET',
+			success: function(data)
+			{
+				var d = data.length;
+				var table = document.getElementById("tab");
+				for (var i = 0; i < d; i++)
+				{
+					tr = $('<tr/>');
+					tr.append("<td>"+data[i].tytul+"</td>");
+					tr.append("<td>"+data[i].gatunek+"</td>");
+					td = $('<td/>');
+					td.append("<a href='${pageContext.request.contextPath}/film/edit/"+data[i].id+"' class='btn btn-default'>Edytuj </a><buttom onClick='del("+data[i].id+")' class='btn btn-default'> Usuń </buttom>");
+					tr.append(td);
+					$(table).append(tr);
+				}
+			}
+		}
+		);
+	}
+	);
+	</script>
 
 <body>
 
@@ -42,43 +70,15 @@
         <h3>Filmy</h3>
         <br/>
 
-        <c:choose>
-            <c:when test="${filmy.size() > 0}">
-                <table class="table table-striped">
-                    <tr>
-                        <th>#</th>
-                        <th>Tytuł</th>
-                        <th>Gatunek</th>
-                        <th>Akcja</th>
-                    </tr>
-                    <c:forEach var="film" items="${filmy}" varStatus="loopCounter">
-                        <tr>
-                            <td>${film.id}</td>
-                            <td>${film.tytul}</td>
-                            <td>${film.gatunek}</td>
-                            <td>${film.haveRezyser}</td>
-                            <td>
-                                <a href="viewFilm/${film.id}">
-                                    Zobacz
-                                </a>
-                                |
-                                <a href="editFilm/${film.id}">
-                                    Zmień
-                                </a>
-                                |
-                                <a href="removeFilm/${film.id}">
-                                    Usuń
-                                </a>
-                            </td>
-                        </tr>
-                    </c:forEach>
-                </table>
 
-            </c:when>
-            <c:otherwise>
-                <div class="well">Brak filmów</div>
-            </c:otherwise>
-        </c:choose>
+	<table id="tab" class="table table-striped">
+		<tr>
+			<th>Tytuł</th>
+			<th>Gatunek</th>
+			<th></th>
+		</tr>
+	</table>
+
     </div>
 
     <div class="row">

@@ -1,5 +1,7 @@
 package com.example.shdemo.domain;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -66,6 +68,7 @@ public class Rezyser {
 
 	// Be careful here, both with lazy and eager fetch type
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@JsonIgnore
 	public List<Film> getFilms() {
 		return films;
 	}

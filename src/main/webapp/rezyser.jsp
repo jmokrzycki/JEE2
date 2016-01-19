@@ -32,6 +32,38 @@
 		}
 	);
 	</script>
+
+	<script>
+	$(document).ready(function()
+	{
+		$.ajax
+		(
+		{
+			url: '${pageContext.request.contextPath}/rest/rezyser/getAll',
+			type: 'GET',
+			success: function(data)
+			{
+				var d = data.length;
+				var table = document.getElementById("tab");
+				for (var i = 0; i < d; i++)
+				{
+					tr = $('<tr/>');
+					tr.append("<td>"+data[i].firstName+"</td>");
+					tr.append("<td>"+data[i].birthDate+"</td>");
+					tr.append("<td>"+data[i].pin+"</td>");
+					td = $('<td/>');
+					td.append("<a href='${pageContext.request.contextPath}/film/edit/"+data[i].id+"' class='btn btn-default'>Edytuj </a><buttom onClick='del("+data[i].id+")' class='btn btn-default'> Usuń </buttom>");
+					tr.append(td);
+					$(table).append(tr);
+				}
+			}
+		}
+		);
+	}
+	);
+	</script>
+
+    <hr>
 </head>
 
 <body>
@@ -43,45 +75,14 @@
         <h3>Reżyserzy</h3>
         <br/>
 
-        <c:choose>
-            <c:when test="${rezyserzy.size() > 0}">
-                <table class="table table-striped">
-                    <tr>
-                        <th>#</th>
-                        <th>Imię</th>
-                        <th>Data urodzenia</th>
-                        <th>PIN</th>
-                        <th>Akcja</th>
-                    </tr>
-                    <c:forEach var="rezyser" items="${rezyserzy}" varStatus="loopCounter">
-                        <tr>
-                            <td>${rezyser.id}</td>
-                            <td>${rezyser.firstName}</td>
-                            <td>${rezyser.birthDate}</td>
-                            <td>${rezyser.pin}</td>
-                            <td>
-                                <a href="viewRezyser/${rezyser.id}">
-                                    Zobacz
-                                </a>
-                                |
-                                <a href="editRezyser/${rezyser.id}">
-                                    Zmień
-                                </a>
-                                |
-                                <a href="removeRezyser/${rezyser.id}">
-                                    Usuń
-                                </a>
-                            </td>
-                        </tr>
-                    </c:forEach>
-                </table>
-
-            </c:when>
-            <c:otherwise>
-                <div class="well">Brak reżyserów</div>
-            </c:otherwise>
-        </c:choose>
-    </div>
+	<table id="tab" class="table table-striped">
+		<tr>
+			<th>Imię</th>
+			<th>Data urodzenia</th>
+			<th>PIN</th>
+			<th></th>
+		</tr>
+	</table>
 
     <div class="row">
         <div class="col-md-12">
@@ -121,8 +122,6 @@
             </form>
         </div>
     </div>
-
-    <hr>
 
     <jsp:include page="parts/footer.jsp" />
 </div>
