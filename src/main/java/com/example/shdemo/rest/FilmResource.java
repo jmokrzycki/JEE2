@@ -46,11 +46,12 @@ public class FilmResource{
      @Produces(MediaType.APPLICATION_JSON)
      public Film update(
 	@PathParam("id") Long id,
+	@FormParam("rezyser") Long rezyser,
 	@FormParam("tytul") String tytul,
 	@FormParam("gatunek") String gatunek)
      {
 	Film f = new Film();
-	sm.updateFilm(id, tytul, gatunek);
+	sm.updateFilm(id, sm.findRezyserById(rezyser), tytul, gatunek);
 	return f;
      }
 

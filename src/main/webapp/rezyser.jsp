@@ -52,7 +52,7 @@
 					tr.append("<td>"+data[i].birthDate+"</td>");
 					tr.append("<td>"+data[i].pin+"</td>");
 					td = $('<td/>');
-					td.append("<a href='${pageContext.request.contextPath}/film/edit/"+data[i].id+"' class='btn btn-default'>Zmień </a><buttom onClick='del("+data[i].id+")' class='btn btn-default'> Usuń </buttom>");
+					td.append("<a href='${pageContext.request.contextPath}/RezZm/"+data[i].id+"' class='btn btn-default'>Zmień </a><buttom onClick='del("+data[i].id+")' class='btn btn-default'> Usuń </buttom>");
 					tr.append(td);
 					$(table).append(tr);
 				}

@@ -100,8 +100,9 @@ public class SellingManager {
 		return (Film) em.find(Film.class, id);
 	}
 
-	public void updateFilm(Long id, String tytul, String gatunek){
+	public void updateFilm(Long id, Rezyser rezyser, String tytul, String gatunek){
 		Film film = findFilmById(id);
+		film.setRezyser(rezyser);
 		film.setTytul(tytul);
 		film.setGatunek(gatunek);
 
