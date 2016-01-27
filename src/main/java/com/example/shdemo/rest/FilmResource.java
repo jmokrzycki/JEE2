@@ -25,7 +25,7 @@ public class FilmResource{
     	 return sm.getAllFilm();
     }
 
-     @POST
+     @POST //3 dodanie filmu do bazy
      @Path("/add")
      @Produces(MediaType.APPLICATION_JSON)
      public Film add(
@@ -55,7 +55,7 @@ public class FilmResource{
 	return f;
      }
 
-    @DELETE
+    @DELETE //2 get delete idzie z rezyser.jsp
     @Path("/delete/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public void delete(@PathParam("id") long id)

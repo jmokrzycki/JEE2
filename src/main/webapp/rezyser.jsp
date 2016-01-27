@@ -41,7 +41,7 @@
 		{
 			url: '${pageContext.request.contextPath}/rest/rezyser/getAll',
 			type: 'GET',
-			success: function(data)
+			success: function(data) 
 			{
 				var d = data.length;
 				var table = document.getElementById("tab");
@@ -52,7 +52,7 @@
 					tr.append("<td>"+data[i].birthDate+"</td>");
 					tr.append("<td>"+data[i].pin+"</td>");
 					td = $('<td/>');
-					td.append("<a href='${pageContext.request.contextPath}/RezZm/"+data[i].id+"' class='btn btn-default'>Zmień </a><buttom onClick='del("+data[i].id+")' class='btn btn-default'> Usuń </buttom>");
+					td.append("<a href='${pageContext.request.contextPath}/RezZm/"+data[i].id+"' class='btn btn-default'>Zmień </a><buttom onClick='del("+data[i].id+")' class='btn btn-default'> Usuń </buttom>"); //1 edycja klikniecie linku 
 					tr.append(td);
 					$(table).append(tr);
 				}

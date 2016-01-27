@@ -51,7 +51,7 @@ public class RezyserResource{
 	return r;
      }
 
-     @PUT
+     @PUT //4 edycja path param - sciezka, formparam z formularza
      @Path("/update/{id}")
      @Produces(MediaType.APPLICATION_JSON)
      public Rezyser update(

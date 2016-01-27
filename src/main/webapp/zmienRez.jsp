@@ -9,7 +9,7 @@
 <script>
 	$(document).ready(function()
 	{
-		$( "#update" ).on('click', function(e)
+		$( "#update" ).on('click', function(e) //3 edycja jak sie kliknnie na przycisk edytuj (przycisk nizej)
 		{
 		e.preventDefault();
 		$.ajax
@@ -61,7 +61,7 @@
 		</div>
 		<div class="form-group">
 			<div class="col-sm-offset-2 col-sm-10">
-				<button id="update" type="submit" class="btn btn-default">Zatwierdź</button>
+				<button id="update" type="submit" class="btn btn-default">Zatwierdź</button> <!-- po kliknieciu wywolane 3 -->
 			</div>
 		</div>
 	</form>

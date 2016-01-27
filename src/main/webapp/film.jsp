@@ -8,14 +8,14 @@
     <jsp:include page="parts/scripts.jsp" />
 	<script>
 	$(document).ready(function()
-	{
-		$( "#add" ).on('click', function(e)
+	{ //function(e) pobiera event
+		$( "#add" ).on('click', function(e) // 2 akcja klikniecia
 			{
-			e.preventDefault();
+			e.preventDefault(); //zapobiega przenoszeniu do nowej strony
 			$.ajax
 			(
 				{
-				url: '${pageContext.request.contextPath}/rest/film/add',
+				url: '${pageContext.request.contextPath}/rest/film/add', //przechodzi pod ten url
 				type: 'POST',
 				data:
 				{
@@ -41,7 +41,7 @@
 		{
 			url: '${pageContext.request.contextPath}/rest/film/getAll',
 			type: 'GET',
-			success: function(data)
+			success: function(data) //1 get wypelnianie tabeli
 			{
 				var d = data.length;
 				var table = document.getElementById("tab");
@@ -52,7 +52,7 @@
 					tr.append("<td>"+data[i].tytul+"</td>");
 					tr.append("<td>"+data[i].gatunek+"</td>");
 					td = $('<td/>');
-					td.append("<a href='${pageContext.request.contextPath}/FilmZm/"+data[i].id+"' class='btn btn-default'>Zmień </a><buttom onClick='del("+data[i].id+")' class='btn btn-default'> Usuń </buttom>");
+					td.append("<a href='${pageContext.request.contextPath}/FilmZm/"+data[i].id+"' class='btn btn-default'>Zmień </a><buttom onClick='del("+data[i].id+")' class='btn btn-default'> Usuń </buttom>"); //2 jak sie kliknie to idzie albo EdytujZm
 					tr.append(td);
 					$(table).append(tr);
 				}
@@ -108,7 +108,7 @@
 			<div class="col-sm-10">
 				<select type="text" name="rezyser" id="rezyser" class="form-control" required>
 					<c:forEach var="rez" items="${rezyserKO}" varStatus="loopCounter">
-						<option value="${rez.id}">${rez.firstName}</option>
+						<option value="${rez.id}">${rez.firstName}</option> <!-- wyswietla imie zwraca id -->
 					</c:forEach>
 				</select>
 			</div>
@@ -132,7 +132,7 @@
 
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
-                        <button id="add" type="submit" class="btn btn-default">Dodaj</button>
+                        <button id="add" type="submit" class="btn btn-default">Dodaj</button> <!-- 1 uzytkownik klika przycisk -->
 
                     </div>
                 </div>
